@@ -1,0 +1,67 @@
+{
+    "schema": "escuela",
+    "tables": [
+        {
+            "table_name": "alumnos",
+            "fields": [
+                {
+                    "name_field": "nombre",
+                    "type": "varchar",
+                    "pk": false,
+                    "size": 20,
+                    "non_null": false,
+                    "fk": {
+                        "table_name": "lista_alumnos",
+                        "pk": "nombre"
+                    },
+                    "unique": true,
+                    "autoincrement": false,
+                    "deafult": "string",
+                    "first_field": true
+                },
+                {
+                    "name_field": "id",
+                    "type": "varchar",
+                    "pk": true,
+                    "size": 20,
+                    "non_null": false,
+                    "unique": true,
+                    "autoincrement": false,
+                    "deafult": "string",
+                    "last_field": true
+                }
+            ]
+        },
+        {
+            "table_name": "profesores",
+            "fields": [
+                {
+                    "name_field": "nombre",
+                    "type": "varchar",
+                    "pk": false,
+                    "size": 20,
+                    "non_null": false,
+                    "fk": {
+                        "table_name": "lista_profesores",
+                        "pk": "nombre"
+                    },
+                    "unique": true,
+                    "autoincrement": false,
+                    "deafult": "string",
+                    "first_field": true
+                },
+                {
+                    "name_field": "id",
+                    "type": "varchar",
+                    "pk": true,
+                    "size": 20,
+                    "non_null": false,
+                    "unique": true,
+                    "autoincrement": false,
+                    "deafult": "string",
+                    "last_field": true
+                }
+            ]
+        }
+    ]
+}

@@ -12,6 +12,6 @@ public class ForeignKey {
     @JsonProperty("table_name")
     private String tableName;
 
-    @JsonProperty("foreign_field")
-    private String foreignField;
+    @JsonProperty("pk")
+    private String pk;
 }

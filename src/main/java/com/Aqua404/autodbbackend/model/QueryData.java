@@ -13,7 +13,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class QueryData {
 
-    @JsonProperty("database")
+    @JsonProperty("schema")
     private String schema;
 
     @JsonProperty("tables")

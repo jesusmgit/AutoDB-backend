@@ -15,7 +15,7 @@ public class Table {
     @JsonProperty("table_name")
     private String tableName;
 
-    @JsonProperty("datos")
+    @JsonProperty("fields")
     private List<Field> fields;
 
 }
