@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class ExceptionManager {
 
-    @ExceptionHandler(DatabaseException.class)
-    public ResponseEntity<ErrorResponse> proccessDatabaseException(final DatabaseException e){
+    @ExceptionHandler(TrimException.class)
+    public ResponseEntity<ErrorResponse> proccessDatabaseException(final TrimException e){
         log.info(e.getMessage(), e);
         return handleHttpException(e.getStatusCode(),e.getMessage(),e);
     }
 
-    private ResponseEntity<ErrorResponse> handleHttpException(HttpStatus ht,  String description, DatabaseException e){
+    private ResponseEntity<ErrorResponse> handleHttpException(HttpStatus ht,  String description, TrimException e){
         return ResponseEntity.status(ht).body(ErrorResponse.builder(e,ht,description).build());
     }
 }

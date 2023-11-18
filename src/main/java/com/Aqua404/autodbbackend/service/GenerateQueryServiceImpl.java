@@ -1,6 +1,7 @@
 package com.aqua404.autodbbackend.service;
 
 import com.aqua404.autodbbackend.model.QueryData;
+import com.aqua404.autodbbackend.util.Trimmer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

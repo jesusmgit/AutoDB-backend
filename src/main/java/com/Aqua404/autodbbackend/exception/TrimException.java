@@ -6,12 +6,12 @@ import org.springframework.http.HttpStatus;
 
 @Data
 @RequiredArgsConstructor
-public class DatabaseException extends RuntimeException {
+public class TrimException extends RuntimeException {
     private HttpStatus statusCode;
     private String table;
 
 
-    public DatabaseException(HttpStatus httpStatus, String personTable) {
+    public TrimException(HttpStatus httpStatus, String personTable) {
         this.statusCode = httpStatus;
         this.table = personTable;
     }
