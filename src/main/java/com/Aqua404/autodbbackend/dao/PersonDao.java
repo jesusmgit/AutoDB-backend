@@ -1,7 +1,7 @@
 package com.aqua404.autodbbackend.dao;
 
 import com.aqua404.autodbbackend.entity.Person;
-import com.aqua404.autodb.backend.exception.DatabaseException;
+import com.aqua404.autodbbackend.exception.DatabaseException;
 import com.aqua404.autodbbackend.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

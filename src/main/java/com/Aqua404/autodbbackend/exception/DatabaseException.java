@@ -1,4 +1,4 @@
-package com.aqua404.autodb.backend.exception;
+package com.aqua404.autodbbackend.exception;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
