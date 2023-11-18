@@ -16,8 +16,8 @@ spring:
       idleTimeout: 600000
       maxLifeTime: 1800000
   application:
-    app: MIAPPDEMO
-    name: mi-app-demo
+    app: autodb-backend
+    name: autodb-backend
 
   config:
     use-legacy-processing: true

@@ -17,6 +17,17 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public Optional<Person> getPerson(String id) {
         log.debug("PersonServiceImpl - getPerson() - method");
+        Optional<Person> otpPerson = personDao.findById(id);
+        if (otpPerson.isEmpty()){
+            return Optional.empty();
+        }
+
         return personDao.findById(id);
+    }
+
+    public String generateQuery(){
+
+
+        return "";
     }
 }
