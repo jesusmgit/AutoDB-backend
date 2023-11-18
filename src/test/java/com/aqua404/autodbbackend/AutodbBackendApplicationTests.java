@@ -1,10 +1,10 @@
-package com.Aqua404.AutoDBbackend;
+package com.aqua404.autodbbackend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AutoDbBackendApplicationTests {
+class AutodbBackendApplicationTests {
 
 	@Test
 	void contextLoads() {
