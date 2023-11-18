@@ -1,7 +1,7 @@
 # Read Me First
 The following was discovered as part of building this project:
 
-* The original package name 'com.Aqua404.AutoDB-backend' is invalid and this project uses 'com.Aqua404.AutoDBbackend' instead.
+* The original package name 'com.aqua404.autodb-backend' is invalid and this project uses 'com.aqua404.autodbbackend' instead.
 
 # Getting Started
 
