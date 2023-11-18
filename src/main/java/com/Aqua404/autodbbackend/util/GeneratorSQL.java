@@ -17,16 +17,18 @@ public class GeneratorSQL {
 
 
     public static List<String> generateQueryFromData(QueryData queryData){
+        Trimmer.trimObjectFields(queryData);
         List<String> listOfQuerys = new ArrayList<>();
         Optional<QueryData> opQueryData = Optional.of(queryData);
         var query = "";
         for (Table table: opQueryData.get().getTables()){
+            Trimmer.trimObjectFields(table);
             query = "CREATE TABLE ";
             query =  query.concat(opQueryData.get().getSchema().concat("."));
             query = query.concat(table.getTableName().concat(" ( "));
 
             for (Field field: table.getFields() ){
-
+                Trimmer.trimObjectFields(field);
                 query =  query.concat(field.getName().concat(" ")
                         .concat(field.getType()));
                 if (field.isNotNull()){
