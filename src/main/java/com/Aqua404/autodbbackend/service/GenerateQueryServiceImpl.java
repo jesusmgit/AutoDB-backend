@@ -13,6 +13,7 @@ import java.util.List;
 
 import static com.aqua404.autodbbackend.util.Constants.*;
 import static com.aqua404.autodbbackend.util.GeneratorSQL.generateQueryFromData;
+import static com.aqua404.autodbbackend.util.GeneratorSQL.validateAndCleanString;
 
 @Service
 @Slf4j
@@ -39,6 +40,8 @@ public class GenerateQueryServiceImpl implements GenerateQueryService {
         if (queryData.getSchema() == null ||
                 queryData.getSchema().isBlank()) {
             queryData.setSchema(SCHEMA_DEFAULT);
+        } else {
+            queryData.setSchema(validateAndCleanString(queryData.getSchema()));
         }
         if (queryData.getTables().isEmpty()){
             return "no se ha recibido ninguna tabla";
@@ -48,6 +51,9 @@ public class GenerateQueryServiceImpl implements GenerateQueryService {
             if (queryData.getTables().get(i).getTableName() == null ||
                     queryData.getTables().get(i).getTableName().isBlank()){
                 queryData.getTables().get(i).setTableName(NAME_TABLE_DEFAULT.concat(String.valueOf(i)));
+            } else {
+                queryData.getTables().get(i).setTableName(
+                        validateAndCleanString(queryData.getTables().get(i).getTableName()));
             }
             if (queryData.getTables().get(i).getFields() == null){
                 return "no se ha recibido ningún campo de las tablas";
@@ -56,6 +62,9 @@ public class GenerateQueryServiceImpl implements GenerateQueryService {
                     if (queryData.getTables().get(i).getFields().get(y).getName() == null ||
                             queryData.getTables().get(i).getFields().get(y).getName().isBlank()){
                         queryData.getTables().get(i).getFields().get(y).setName(DEFAULT_FIELD.concat(String.valueOf(y)));
+                    } else {
+                        queryData.getTables().get(i).getFields().get(y).setName(
+                                validateAndCleanString(queryData.getTables().get(i).getFields().get(y).getName()));
                     }
                 }
             }

@@ -105,7 +105,8 @@ public class GeneratorSQL {
         return listOfQuerys;
     }
 
-    private String validatePk(){
-        return "";
+    public static String validateAndCleanString(String input) {
+        var regex = "[^a-zA-Z0-9_\\-.]";
+        return input.replaceAll(regex, "");
     }
 }
