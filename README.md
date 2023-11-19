@@ -6,7 +6,7 @@ Backend API, to generate PostgreSQL Querys.
 Implemented Methods:
 
 checkHealth -> autodb-backend/checkHealth  
-        Api to Check if the service is available via GET Petition
+        Api to Check if the service is available via POST Petition
 
 generate-sql -> autodb-backend/v1/generate-sql  
         Api expects a json object and converts object into a query. The Api returns a List of all query.   
