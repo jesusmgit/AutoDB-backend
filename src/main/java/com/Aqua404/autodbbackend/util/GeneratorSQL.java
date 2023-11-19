@@ -15,7 +15,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class GeneratorSQL {
 
-
     public static List<String> generateQueryFromData(QueryData queryData){
         Trimmer.trimObjectFields(queryData);
         List<String> listOfQuerys = new ArrayList<>();
@@ -24,6 +23,7 @@ public class GeneratorSQL {
         for (Table table: opQueryData.get().getTables()){
             Trimmer.trimObjectFields(table);
             query = "CREATE TABLE ";
+
             query =  query.concat(opQueryData.get().getSchema().concat("."));
             query = query.concat(table.getTableName().concat(" ( "));
 
@@ -54,6 +54,10 @@ public class GeneratorSQL {
                                             .concat(" (").concat(fk.getPk().concat(")"))));
                 }
 
+                if (table.getFields().size() == 1){
+                    field.setFirstField(false);
+
+                }
                 if (field.isFirstField()){
                     query = query.concat(", ");
                     field.setFirstField(false);

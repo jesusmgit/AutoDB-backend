@@ -12,10 +12,10 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Table {
 
-    @JsonProperty("table_name")
+    @JsonProperty("name_table")
     private String tableName;
 
-    @JsonProperty("fields")
+    @JsonProperty("datos")
     private List<Field> fields;
 
 }
