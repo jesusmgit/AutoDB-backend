@@ -38,8 +38,6 @@ public class GenerateQueryServiceImpl implements GenerateQueryService {
 
         }
 
-
-
         return null;
     }
 

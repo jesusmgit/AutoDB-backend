@@ -19,6 +19,7 @@ public class GeneratorSQL {
         Trimmer.trimObjectFields(queryData);
         List<String> listOfQuerys = new ArrayList<>();
         Optional<QueryData> opQueryData = Optional.of(queryData);
+        List<String> pKList = new ArrayList<>();
         var query = "";
         for (Table table: opQueryData.get().getTables()){
             Trimmer.trimObjectFields(table);
@@ -39,9 +40,7 @@ public class GeneratorSQL {
                 }
 
                 if (field.isPk()){
-                    query =  query.concat(", CONSTRAINT ")
-                            .concat(table.getTableName().concat("_pk")
-                                    .concat(" PRIMARY KEY (")).concat(field.getName().concat(")"));
+                    pKList.add(field.getName());
                 }
                 if (field.getFk() != null){
                         var fk = field.getFk();
@@ -58,19 +57,38 @@ public class GeneratorSQL {
                     field.setFirstField(false);
 
                 }
-                if (field.isFirstField()){
-                    query = query.concat(", ");
-                    field.setFirstField(false);
-                }
                 if (field.isLastfield()){
+                    if (!pKList.isEmpty()){
+                        query = query.concat(", CONSTRAINT ")
+                                .concat(table.getTableName().concat("_pk")
+                                        .concat(" PRIMARY KEY ("));
+                        for (int i = 0; i < pKList.size(); i++) {
+                            if (i == pKList.size()-1){
+                                query =  query.concat(pKList.get(i));
+                            } else{
+                                if (i != pKList.size() - 1){
+                                    query =  query.concat(pKList.get(i).concat(", "));
+                                }
+                            }
+                        }
+                        query = query.concat(")");
+                    }
+
                     query = query.concat(");");
+                } else {
+                    query = query.concat(", ");
                 }
 
             }
             listOfQuerys.add(query);
+            pKList = new ArrayList<>();
 
         }
 
         return listOfQuerys;
+    }
+
+    private String validatePk(){
+        return "";
     }
 }
