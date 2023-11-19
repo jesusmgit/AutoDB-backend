@@ -2,6 +2,12 @@
 
 Backend API, to generate PostgreSQL Querys.
 
+software used:
+        IDE IntellIJ IDEA
+        Maven project
+        Postgresql (for tests, and features in progress).
+        Java JDK 17.0.7
+
 
 Implemented Methods:
 
@@ -9,7 +15,7 @@ checkHealth -> autodb-backend/checkHealth
         Api to Check if the service is available via POST Petition
 
 generate-sql -> autodb-backend/v1/generate-sql  
-        Api expects a json object and converts object into a query. The Api returns a List of all query.   
+        Api expects a json object and converts objects into querys. The Api returns a List of querys.   
         The Api checks if the texts fields "schema", table_name", "name_field" and "type" are not empty setting defaults names to the fields.   
         
     example body:
