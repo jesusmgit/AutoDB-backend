@@ -9,8 +9,8 @@ checkHealth -> autodb-backend/checkHealth
         Api to Check if the service is available via GET Petition
 
 generate-sql -> autodb-backend/v1/generate-sql  
-        Api expects a json object and converts object into a query. The Api returns a List of all query
-        The Api checks if the texts fields "schema", table_name", "name_field" and "type" are not empty setting defaults names to the fields
+        Api expects a json object and converts object into a query. The Api returns a List of all query  
+        The Api checks if the texts fields "schema", table_name", "name_field" and "type" are not empty setting defaults names to the fields  
         
     example body:
     {
