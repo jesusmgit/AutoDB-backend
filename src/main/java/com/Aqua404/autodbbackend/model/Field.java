@@ -26,8 +26,6 @@ public class Field {
     private boolean unique;
     @JsonProperty("autoincrement")
     private boolean autoincrement;
-    @JsonProperty("default")
-    private String defaultField;
     @JsonProperty("first_field")
     private boolean firstField;
     @JsonProperty("last_field")

@@ -10,6 +10,9 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import static com.aqua404.autodbbackend.util.Constants.*;
+
 @Component
 @Slf4j
 @RequiredArgsConstructor
@@ -30,8 +33,23 @@ public class GeneratorSQL {
 
             for (Field field: table.getFields() ){
                 Trimmer.trimObjectFields(field);
-                query =  query.concat(field.getName().concat(" ")
-                        .concat(field.getType()));
+
+                query =  query.concat(field.getName().concat(" "));
+
+                if (field.isAutoincrement()){
+                    query = query.concat(SERIAL);
+                    field.setType(SERIAL);
+                } else{
+                    query =  query.concat(field.getType());
+                }
+
+                if (field.getType().equals(TYPE_VARCHAR)){
+                    if (field.getSize() == null){
+                        query = query.concat(DEFAULT_SIZE_TYPE);
+                    } else {
+                        query = query.concat("(").concat(String.valueOf(field.getSize())).concat(")");
+                    }
+                }
                 if (field.isNotNull()){
                     query =  query.concat(" not null ");
                 }
@@ -55,7 +73,6 @@ public class GeneratorSQL {
 
                 if (table.getFields().size() == 1){
                     field.setFirstField(false);
-
                 }
                 if (field.isLastfield()){
                     if (!pKList.isEmpty()){

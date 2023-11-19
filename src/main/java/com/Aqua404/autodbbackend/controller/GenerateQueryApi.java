@@ -1,5 +1,6 @@
 package com.aqua404.autodbbackend.controller;
 
+import com.aqua404.autodbbackend.model.GenerateSqlResponse;
 import com.aqua404.autodbbackend.model.QueryData;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
@@ -16,5 +17,9 @@ public interface GenerateQueryApi {
 
     @PostMapping(value = "/generate-sql")
     List<String> getQuery(
+            @Valid @NotNull @RequestBody  final QueryData queryData);
+
+    @PostMapping(value = "/generate-sql-NEW")
+    GenerateSqlResponse getQueryNEW(
             @Valid @NotNull @RequestBody  final QueryData queryData);
 }

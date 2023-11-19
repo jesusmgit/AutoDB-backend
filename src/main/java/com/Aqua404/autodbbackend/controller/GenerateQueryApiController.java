@@ -1,5 +1,6 @@
 package com.aqua404.autodbbackend.controller;
 
+import com.aqua404.autodbbackend.model.GenerateSqlResponse;
 import com.aqua404.autodbbackend.model.QueryData;
 import com.aqua404.autodbbackend.service.GenerateQueryService;
 import lombok.RequiredArgsConstructor;
@@ -20,5 +21,10 @@ public class GenerateQueryApiController implements GenerateQueryApi {
     @Override
     public List<String> getQuery(QueryData queryData) {
         return service.generateQuery(queryData);
+    }
+
+    @Override
+    public GenerateSqlResponse getQueryNEW(QueryData queryData) {
+        return service.generateQueryNEW(queryData);
     }
 }
